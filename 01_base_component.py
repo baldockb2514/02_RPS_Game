@@ -43,9 +43,8 @@ def choice_checker(question, valid_list, error):
             if response == item[0] or response == item:
                 return item
 
-            else:
-                print(error)
-                print()
+        print(error)
+        print()
 
 
 # Main routine goes here
@@ -60,13 +59,10 @@ rps_list = ["rock", "paper", "scissors", "xxx"]
 # Ask user for # of rounds then loop...
 rounds_played = 0
 
-# Ask user for choice and check that it's valid
-choose_instruction = choice_checker("Please choose Rock / Paper / Scissors ", rps_list,
-                                    "Please choose from rock / paper/ scissors (or xxx to quit)")
-
-# Ask user for # of rounds, <enter for indefinite mode
+# Ask user for # of rounds, <enter> for indefinite mode
 rounds = check_rounds()
 
+# Ask user for choice and check that it's valid 
 end_game = "no"
 while end_game == "no":
 
@@ -81,7 +77,15 @@ while end_game == "no":
         heading = f"Round of {rounds_played + 1} of {rounds}"
 
     print(heading)
-    choose = input(f"{choose_instruction} or 'xxx' to end: ")
+    choose_instruction = "Please choose Rock / Paper / Scissors "
+    choose_error = "Please choose from rock / paper/ scissors (or xxx to quit) "
+
+    # Ask user for choice and check that it's valid
+    choose = choice_checker(choose_instruction, rps_list, choose_error)
+
+    # get computer choice
+
+    # compare choices
 
     # End game if exit code is typed
     if choose == "xxx":
@@ -91,3 +95,7 @@ while end_game == "no":
     print(f"You chose {choose}")
 
     rounds_played += 1
+
+    # end game if requested # of rounds has been played
+    if rounds_played == rounds:
+        break
