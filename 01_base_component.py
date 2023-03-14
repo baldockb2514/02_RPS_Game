@@ -62,7 +62,7 @@ rounds_played = 0
 # Ask user for # of rounds, <enter> for indefinite mode
 rounds = check_rounds()
 
-# Ask user for choice and check that it's valid 
+# Ask user for choice and check that it's valid
 end_game = "no"
 while end_game == "no":
 
@@ -84,15 +84,28 @@ while end_game == "no":
     choose = choice_checker(choose_instruction, rps_list, choose_error)
 
     # get computer choice
+    comp_choice = random.choice(rps_list[:-1])
 
     # compare choices
-
+    # if the comp choice and user choice is the same it's a tie
+    if comp_choice == choose:
+        result = "It's a tie!"
+    # win requirements + statements
+    elif choose == "rock" and comp_choice == "scissors" or choose == "paper" and comp_choice == "rock" or\
+            choose == "scissors" and comp_choice == "paper":
+        result = "Congratulations! You Win!"
+    # If nothing else applies, you lost
+    else:
+        result = "You lost :( Better luck next time"
     # End game if exit code is typed
     if choose == "xxx":
         break
 
     # rest of the loop / game
-    print(f"You chose {choose}")
+    # print results
+    print("You chose: {}"
+          "\nComputer chose: {}."
+          "\n{}".format(choose, comp_choice, result))
 
     rounds_played += 1
 

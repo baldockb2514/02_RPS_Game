@@ -43,8 +43,8 @@ while end_game == "no":
         heading = f"Round of {rounds_played + 1} of {rounds}"
         print(heading)
         choose = input(choose_instruction)
-        if rounds_played == rounds - 1:
-            end_game = "yes"
+        if rounds_played == rounds:
+            break
 
     # rest of the loop / game
     print(f"You chose {choose}")

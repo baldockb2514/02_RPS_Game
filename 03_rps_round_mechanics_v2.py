@@ -54,4 +54,8 @@ while end_game == "no":
 
     rounds_played += 1
 
+    # end game if requested # of rounds has been played
+    if rounds_played == rounds:
+        break
+
 print("Thank you for playing")

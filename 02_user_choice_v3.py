@@ -1,4 +1,5 @@
 # Version 3 - checks that response is in given list
+
 # Functions go here
 def choice_checker(question, valid_list, error):
     valid = False
