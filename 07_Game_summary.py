@@ -26,7 +26,7 @@ percent_drawn = rounds_drawn / rounds_played * 100
 print()
 print("***** Game History *****")
 for game in game_summary:
-    print( game)
+    print(game)
 
 print()
 
